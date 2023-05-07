@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { nanoid } from 'nanoid';
@@ -8,16 +8,12 @@ export default class Form extends Component {
       name: '',
       number: ''
   };
-
   // Відповідає за оновлення стану
   handleChange = e => {
-    // this.setState({ name: evt.target.value });
     this.setState({
       [e.target.name]: e.target.value,
     });
-    
-  };
-
+  }
   // Викликається під час відправлення форми
   handleSubmit = evt => {
     evt.preventDefault();
@@ -35,22 +31,9 @@ export default class Form extends Component {
   };
 
   render() {
-    // const { name } = this.state;
+    
     return (
         <form onSubmit={this.handleSubmit}>
-          <h1>Phonebook</h1>
-        {/* <label>
-          Name <br></br>
-          <input
-            type="text"
-            name="name"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            required
-            value={name}
-            onChange={this.handleChange}
-          />
-        </label> */}
           <TextField
             id="outlined-basic"
             label="Name" 
@@ -74,7 +57,6 @@ export default class Form extends Component {
             onChange={this.handleChange} />
           {' '}
           <Button variant="contained" type="submit">Add contact</Button>
-        {/* <button type="submit">Add contact</button> */}
         </form>
     );
   }
