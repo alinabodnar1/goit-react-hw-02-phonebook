@@ -16,6 +16,7 @@ export default class App extends Component {
       }
     })
   }
+  
   handleChange = e => {
     this.setState({
       filter: e.target.value,

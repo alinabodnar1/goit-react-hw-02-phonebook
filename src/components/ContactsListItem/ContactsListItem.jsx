@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Button from '@mui/material/Button';
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 
 export default class ContactsListItem extends Component {
     state = {
@@ -19,8 +20,8 @@ export default class ContactsListItem extends Component {
         const { contact, onDelete } = this.props;
         return (
             <li key={contact.id}>
-                {contact.name} 
-                {contact.number}
+                {contact.name} {' '}
+                {contact.number} {' '}
                 <Button
                     variant="outlined"
                     type="button"
@@ -31,4 +32,12 @@ export default class ContactsListItem extends Component {
             </li>
         )
     }
+}
+ContactsListItem.propTypes = {
+    contact: PropTypes.shape({
+            id: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+            number: PropTypes.string.isRequired,    
+        }),
+    onDelete: PropTypes.func.isRequired,
 }

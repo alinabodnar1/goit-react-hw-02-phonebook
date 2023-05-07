@@ -43,7 +43,8 @@ export default class Form extends Component {
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             required
             value={this.state.name}
-            onChange={this.handleChange} />
+            onChange={this.handleChange}
+          />
         {' '}
         <TextField
             id="outlined-basic"
@@ -61,5 +62,3 @@ export default class Form extends Component {
     );
   }
 }
-
- 
