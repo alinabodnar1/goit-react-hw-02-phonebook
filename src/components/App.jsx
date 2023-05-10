@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 import Form from './Form/Form';
 import ContactsList from './ContactsList/ContactsList';
 import Filter from './Filter/Filter';
 import { nanoid } from 'nanoid';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default class App extends Component {
   state = {
@@ -18,8 +20,7 @@ export default class App extends Component {
     }
 
     if (this.state.contacts.some(contact => contact.name.toLowerCase().trim() === name.toLowerCase().trim())) {
-      alert(`${name} is already in the contacts!`);
-      return;
+      return toast.warn(`${name} is already in the contacts!`);
     }
 
     this.setState((prevState) => {
@@ -63,6 +64,8 @@ export default class App extends Component {
         <ContactsList
           contacts={this.filterContacts()}
           onDelete={this.deleteContact} />
+        
+        <ToastContainer autoClose ={3000} />
       </div>
     );
   }
